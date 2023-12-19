@@ -14,8 +14,8 @@ public class InputHandler : MonoBehaviour
         actionMap.PlayerMovement.Jump.canceled += ctx => Debug.Log("Jump Stopped");
         actionMap.PlayerMovement.Sprint.performed += ctx => Debug.Log("Sprinting");
         actionMap.PlayerMovement.Sprint.canceled += ctx => Debug.Log("Sprint Canceled");
-        actionMap.PlayerMovement.Dash.performed += ctx => Debug.Log("Dash");
-        actionMap.PlayerMovement.Slash.performed += ctx => Debug.Log("Attack");
+        actionMap.PlayerMovement.Dash.performed += ctx => GameObject.Find("TempPart").GetComponent<Particle2D>().AddForce(Vector2.left);
+        actionMap.PlayerMovement.Slash.performed += ctx => GameObject.Find("TempPart").GetComponent<Particle2D>().AddForce(Vector2.right);
     }
 
     private void OnEnable()
